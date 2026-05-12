@@ -7,14 +7,13 @@ with open("input.txt", "r") as f:
 print("MAPPER OUTPUT")
 print("=" * 30)
 mapped = []
-for char in text:
-    if char.strip() != "":
-        print(f"{char}\t1")
-        mapped.append(char)
+for word in text.split():
+    print(f"{word}\t1")
+    mapped.append(word)
 
 # Reducer phase
 print("\nREDUCER OUTPUT (Final Count)")
 print("=" * 30)
-char_count = Counter(mapped)
-for char, count in sorted(char_count.items()):
-    print(f"{char}\t{count}")
+word_count = Counter(mapped)
+for word, count in sorted(word_count.items()):
+    print(f"{word}\t{count}")
